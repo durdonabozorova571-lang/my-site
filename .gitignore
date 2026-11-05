@@ -1,0 +1,25 @@
+# Maxfiy sozlamalar (parol, kalit, token)
+.env
+.env.*
+!.env.example
+
+# Tizim fayllari
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Muharrir sozlamalari
+.vscode/
+.idea/
+
+# Kutubxonalar va vaqtinchalik fayllar
+node_modules/
+*.log
+*.tmp
+
+# Ildizdagi boshqa sayt fayllari — repoga kirmaydi
+/index.html
+/style.css
+/script.js
+/images/
+/photo_2026-11-05_21-38-15.jpg
