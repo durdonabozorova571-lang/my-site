@@ -538,6 +538,25 @@ h2 { font-size: clamp(32px, 5vw, 46px); margin-top: 6px; }
   .btn { flex: 1 1 100%; }
   .lead { font-size: 17px; }
 }
+/* ===== Telefonda barmoq bilan bosish qulay boʻlsin: tugmalar kamida 44px ===== */
+@media (max-width: 860px) {
+  html { scroll-padding-top: 140px; }
+  .nav a { padding: 12px 16px; }
+  .talk-btn { min-height: 44px; }
+  .theme-toggle, .logo-circle { width: 44px; height: 44px; }
+  .hero-cta { padding: 14px 28px; }
+  .link-btn, .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 10px 18px;
+    border: 1.5px solid currentColor;
+    border-radius: 999px;
+  }
+  .project-link { margin-top: 14px; }
+  .project-link:hover { text-decoration: none; }
+}
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }
 }
