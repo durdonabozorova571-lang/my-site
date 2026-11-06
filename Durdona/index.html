@@ -17,10 +17,12 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="logo" href="#top" aria-label="Bintu Kamoldin — bosh sahifa"><span class="logo-circle">B</span></a>
-      <nav class="nav">
-        <a href="#top" class="active">Bosh sahifa</a>
-        <a href="#faoliyat">Faoliyatim</a>
-        <a href="#loyihalar">Loyihalarim</a>
+      <nav class="nav" aria-label="Boʻlimlar">
+        <a href="#top" class="active" aria-current="true">Bosh sahifa</a>
+        <a href="#faoliyat">Faoliyat</a>
+        <a href="#ishlar">Ishlar</a>
+        <a href="#savol-javob">Savol-javob</a>
+        <a href="#aloqa">Aloqa</a>
       </nav>
       <div class="topbar-right">
         <a class="talk-btn" href="#aloqa">
@@ -118,7 +120,7 @@
       </div>
     </section>
 
-    <section class="service">
+    <section class="service" data-project>
       <div class="container service-inner">
         <div class="service-mark"><span class="num">03</span><span class="ar">٣</span></div>
         <div class="service-body">
@@ -133,49 +135,40 @@
       </div>
     </section>
 
-    <!-- ===== Loyihalarim ===== -->
-    <section id="loyihalar" class="projects">
+    <!-- ===== Ishlarim ===== -->
+    <section id="ishlar" class="projects">
       <div class="container">
         <div class="section-head-inline">
-          <p class="eyebrow">Loyihalarim</p>
-          <h2>Ishlarim va loyihalarim</h2>
+          <p class="eyebrow">Ishlarim</p>
+          <h2>Ustida ishlayotgan ishlarimiz</h2>
         </div>
 
-        <!-- Har bir loyiha — bitta <article class="project"> -->
+        <!-- Har bir ish — bitta <article class="project" data-project>.
+             Rasm qoʻshish: rasmni images/ papkasiga qoʻying va
+             .project-cover ichidagi <svg> oʻrniga <img src="images/ish-1.jpg" alt="..."> yozing. -->
         <div class="project-grid">
-          <article class="project">
+          <article class="project" data-project>
             <div class="project-cover">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg>
             </div>
             <div class="project-body">
               <p class="project-tag">Jarayonda</p>
               <h3>Yangi kitob</h3>
-              <p>Yangi kitob ustida ishlayapmiz.</p>
+              <p>Yangi kitob yozish ustida ishlayapmiz. Tez orada.</p>
             </div>
           </article>
-          <article class="project">
+          <article class="project" data-project>
             <div class="project-cover">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m10 9 5 3-5 3z"/></svg>
             </div>
             <div class="project-body">
               <p class="project-tag">Qurilyapti</p>
               <h3>Arab tili fonetikasi</h3>
-              <p>Bolalar uchun qiziqarli multfilmlar.</p>
+              <p>Bolalarga arab tili fonetikasini multfilm orqali qiziqarli oʻrgatamiz.</p>
               <a class="project-link" href="https://t.me/somethingwithai" target="_blank" rel="noopener">Telegram kanal →</a>
             </div>
           </article>
-          <article class="project">
-            <div class="project-cover">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-2.1 6.3-6.3 2.1 2.1-6.3z"/></svg>
-            </div>
-            <div class="project-body">
-              <p class="project-tag">Jamiyatcha</p>
-              <h3>Yoʻlchivoylar</h3>
-              <p>Kursdosh qizlarimiz bilan safarlar jamiyatchasi. Biz bilan bogʻlanib, birga safar qilishingiz mumkin.</p>
-              <a class="project-link" href="https://t.me/since1410" target="_blank" rel="noopener">Bogʻlanish →</a>
-            </div>
-          </article>
-          <article class="project">
+          <article class="project" data-project>
             <div class="project-cover">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c.5 4.7 4.3 8.5 9 9-4.7.5-8.5 4.3-9 9-.5-4.7-4.3-8.5-9-9 4.7-.5 8.5-4.3 9-9z"/></svg>
             </div>
@@ -186,6 +179,36 @@
               <a class="project-link" href="https://t.me/whenilearn" target="_blank" rel="noopener">Kanalni ochish →</a>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Savol-javob ===== -->
+    <section id="savol-javob" class="faq">
+      <div class="container faq-inner">
+        <div class="section-head-inline">
+          <p class="eyebrow">Savol-javob</p>
+          <h2>Koʻp beriladigan savollar</h2>
+        </div>
+
+        <!-- Har bir savol — bitta <details class="faq-item">. Bosilganda javob ochiladi. -->
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Siz kimsiz?</summary>
+            <p>Alisher Navoiy nomidagi Toshkent davlat oʻzbek tili va adabiyoti universiteti talabasimiz. Mumtoz adabiyot, Qurʼon ilmlari va vibecoding bilan qiziqamiz.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Qanday bogʻlansam boʻladi?</summary>
+            <p>Telegramda <a href="https://t.me/since1410" target="_blank" rel="noopener">@since1410</a> ga yozing yoki <a href="tel:+998777845307">+998 77 784 53 07</a> raqamiga qoʻngʻiroq qiling. Javob beramiz.</p>
+          </details>
+          <details class="faq-item">
+            <summary>«Yoʻlchivoylar» safarlariga qanday qoʻshilsa boʻladi?</summary>
+            <p><a href="https://t.me/since1410" target="_blank" rel="noopener">@since1410</a> ga yozing — safarlar haqida aytib beramiz.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Arab tili multfilmlarini qayerda koʻrsa boʻladi?</summary>
+            <p>Loyiha hozir qurilyapti. Yangiliklar <a href="https://t.me/somethingwithai" target="_blank" rel="noopener">Telegram kanalimizda</a> chiqadi.</p>
+          </details>
         </div>
       </div>
     </section>

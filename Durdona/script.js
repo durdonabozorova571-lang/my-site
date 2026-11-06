@@ -35,9 +35,52 @@ document.addEventListener("DOMContentLoaded", function () {
   // Kurs raqami / bitiruvchi holatini avtomatik yangilaydi
   window.updateStudy(new Date());
 
-  // Loyihalar sonini kartalar soniga qarab avtomatik yozadi
+  // Loyihalar sonini avtomatik yozadi: data-project belgisi qoʻyilgan har bir karta yoki boʻlim
   var pc = document.getElementById("project-count");
-  if (pc) pc.textContent = document.querySelectorAll(".project-grid .project").length + " ta";
+  if (pc) pc.textContent = document.querySelectorAll("[data-project]").length + " ta";
+
+  // Menyu: hozir qaysi boʻlimda turganingizni belgilaydi
+  var topbar = document.querySelector(".topbar");
+  var nav = document.querySelector(".nav");
+  var links = nav ? Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]')) : [];
+  var targets = links.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
+  var activeIndex = -1;
+
+  function setActive(i) {
+    if (i === activeIndex) return;
+    activeIndex = i;
+    links.forEach(function (a, j) {
+      a.classList.toggle("active", j === i);
+      if (j === i) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+    });
+    // Telefonda faol havola koʻrinib tursin (sahifani emas, faqat menyu qatorini suradi)
+    var a = links[i];
+    if (a && nav.scrollWidth > nav.clientWidth) {
+      var left = a.offsetLeft - (nav.clientWidth - a.offsetWidth) / 2;
+      nav.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
+    }
+  }
+
+  function onScroll() {
+    if (topbar) topbar.classList.toggle("scrolled", window.scrollY > 4);
+    var offset = (topbar ? topbar.offsetHeight : 72) + 24;
+    var current = 0;
+    targets.forEach(function (t, i) {
+      if (t && t.getBoundingClientRect().top - offset <= 0) current = i;
+    });
+    // Sahifa oxiriga yetganda oxirgi boʻlimni belgilaydi
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) current = targets.length - 1;
+    setActive(current);
+  }
+
+  var ticking = false;
+  window.addEventListener("scroll", function () {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () { ticking = false; onScroll(); });
+  }, { passive: true });
+  window.addEventListener("resize", onScroll);
+  onScroll();
 
   // Pastki qismdagi yilni avtomatik yangilaydi
   var year = document.getElementById("year");

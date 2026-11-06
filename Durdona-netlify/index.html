@@ -131,11 +131,16 @@ h2 { font-size: clamp(32px, 5vw, 46px); margin-top: 6px; }
   z-index: 10;
   background: var(--bg);
 }
+.topbar {
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease, background-color .25s ease;
+}
+.topbar.scrolled { border-bottom-color: var(--line); }
 .topbar-inner {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  height: 72px;
+  min-height: 72px;
 }
 .logo { text-decoration: none; justify-self: start; }
 .logo-circle {
@@ -152,6 +157,7 @@ h2 { font-size: clamp(32px, 5vw, 46px); margin-top: 6px; }
 }
 .nav { display: flex; gap: 6px; }
 .nav a {
+  white-space: nowrap;
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
@@ -398,12 +404,12 @@ h2 { font-size: clamp(32px, 5vw, 46px); margin-top: 6px; }
 .link-btn svg { width: 18px; height: 18px; transition: transform .15s ease; }
 .link-btn:hover svg { transform: translateX(3px); }
 
-/* ===== Loyihalarim ===== */
+/* ===== Ishlarim ===== */
 .projects { padding: 96px 0; border-top: 1px solid var(--line); }
 .section-head-inline { padding-bottom: 32px; }
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 .project {
@@ -415,7 +421,7 @@ h2 { font-size: clamp(32px, 5vw, 46px); margin-top: 6px; }
 }
 .project:hover { transform: translateY(-3px); }
 .project-cover {
-  aspect-ratio: 16 / 6;
+  aspect-ratio: 4 / 3;
   background: var(--soft);
   display: grid;
   place-items: center;
@@ -444,6 +450,49 @@ h2 { font-size: clamp(32px, 5vw, 46px); margin-top: 6px; }
 .project-body h3 { font-size: 24px; margin: 4px 0 8px; }
 .project-body p:not(.project-tag) { color: var(--muted); font-size: 15px; }
 
+/* ===== Savol-javob ===== */
+.faq { padding: 96px 0; border-top: 1px solid var(--line); background: var(--soft); }
+.faq-inner { max-width: 820px; }
+.faq-list { display: grid; gap: 12px; }
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  transition: border-color .2s ease;
+}
+.faq-item[open] { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--accent);
+  background: var(--pill);
+  transition: transform .2s ease;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item summary:hover { color: var(--accent); }
+.faq-item summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 16px; }
+.faq-item p { padding: 0 22px 20px; color: var(--muted); max-width: 62ch; }
+.faq-item p a { color: var(--accent); font-weight: 600; text-underline-offset: 3px; }
+
 /* ===== Aloqa ===== */
 .contact { background: var(--band); color: var(--band-ink); padding: 88px 0; }
 .contact-inner { text-align: center; }
@@ -454,10 +503,23 @@ h2 { font-size: clamp(32px, 5vw, 46px); margin-top: 6px; }
 /* ===== Pastki qism ===== */
 .footer { padding: 28px 0; font-size: 14px; color: var(--muted); text-align: center; }
 
+/* ===== Menyu: tor ekranda havolalar ikkinchi qatorda, barmoq bilan suriladi ===== */
+@media (max-width: 1000px) {
+  html { scroll-padding-top: 124px; }
+  .topbar-inner { grid-template-columns: auto 1fr; min-height: 0; padding-top: 12px; row-gap: 10px; }
+  .nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin: 0 -24px;
+    padding: 0 24px 12px;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+}
+
 /* ===== Telefon / planshet ===== */
 @media (max-width: 860px) {
-  .topbar-inner { grid-template-columns: auto 1fr; }
-  .nav { display: none; }
   .hero-card { min-height: 0; padding: 28px 22px 26px; gap: 24px; }
   .hero-photo { width: 100%; height: 340px; bottom: auto; }
   .hero-shade {
@@ -475,10 +537,14 @@ h2 { font-size: clamp(32px, 5vw, 46px); margin-top: 6px; }
   .service-mark { flex-direction: row; align-items: baseline; gap: 14px; }
   .service-mark .num { font-size: 50px; }
   .project-grid { grid-template-columns: 1fr; }
-  .projects { padding: 72px 0; }
+  .project-cover { aspect-ratio: 16 / 9; }
+  .projects, .faq { padding: 72px 0; }
+  .faq-item summary { padding: 16px 18px; font-size: 16px; }
+  .faq-item p { padding: 0 18px 18px; }
 }
 @media (max-width: 520px) {
   .container { padding-left: 16px; padding-right: 16px; }
+  .nav { margin: 0 -16px; padding: 0 16px 12px; }
   .talk-btn { padding: 8px 12px; }
   .btn { flex: 1 1 100%; }
   .lead { font-size: 17px; }
@@ -526,9 +592,52 @@ document.addEventListener("DOMContentLoaded", function () {
   // Kurs raqami / bitiruvchi holatini avtomatik yangilaydi
   window.updateStudy(new Date());
 
-  // Loyihalar sonini kartalar soniga qarab avtomatik yozadi
+  // Loyihalar sonini avtomatik yozadi: data-project belgisi qoʻyilgan har bir karta yoki boʻlim
   var pc = document.getElementById("project-count");
-  if (pc) pc.textContent = document.querySelectorAll(".project-grid .project").length + " ta";
+  if (pc) pc.textContent = document.querySelectorAll("[data-project]").length + " ta";
+
+  // Menyu: hozir qaysi boʻlimda turganingizni belgilaydi
+  var topbar = document.querySelector(".topbar");
+  var nav = document.querySelector(".nav");
+  var links = nav ? Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]')) : [];
+  var targets = links.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
+  var activeIndex = -1;
+
+  function setActive(i) {
+    if (i === activeIndex) return;
+    activeIndex = i;
+    links.forEach(function (a, j) {
+      a.classList.toggle("active", j === i);
+      if (j === i) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+    });
+    // Telefonda faol havola koʻrinib tursin (sahifani emas, faqat menyu qatorini suradi)
+    var a = links[i];
+    if (a && nav.scrollWidth > nav.clientWidth) {
+      var left = a.offsetLeft - (nav.clientWidth - a.offsetWidth) / 2;
+      nav.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
+    }
+  }
+
+  function onScroll() {
+    if (topbar) topbar.classList.toggle("scrolled", window.scrollY > 4);
+    var offset = (topbar ? topbar.offsetHeight : 72) + 24;
+    var current = 0;
+    targets.forEach(function (t, i) {
+      if (t && t.getBoundingClientRect().top - offset <= 0) current = i;
+    });
+    // Sahifa oxiriga yetganda oxirgi boʻlimni belgilaydi
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) current = targets.length - 1;
+    setActive(current);
+  }
+
+  var ticking = false;
+  window.addEventListener("scroll", function () {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () { ticking = false; onScroll(); });
+  }, { passive: true });
+  window.addEventListener("resize", onScroll);
+  onScroll();
 
   // Pastki qismdagi yilni avtomatik yangilaydi
   var year = document.getElementById("year");
@@ -588,10 +697,12 @@ window.updateStudy = function (now) {
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="logo" href="#top" aria-label="Bintu Kamoldin — bosh sahifa"><span class="logo-circle">B</span></a>
-      <nav class="nav">
-        <a href="#top" class="active">Bosh sahifa</a>
-        <a href="#faoliyat">Faoliyatim</a>
-        <a href="#loyihalar">Loyihalarim</a>
+      <nav class="nav" aria-label="Boʻlimlar">
+        <a href="#top" class="active" aria-current="true">Bosh sahifa</a>
+        <a href="#faoliyat">Faoliyat</a>
+        <a href="#ishlar">Ishlar</a>
+        <a href="#savol-javob">Savol-javob</a>
+        <a href="#aloqa">Aloqa</a>
       </nav>
       <div class="topbar-right">
         <a class="talk-btn" href="#aloqa">
@@ -689,7 +800,7 @@ window.updateStudy = function (now) {
       </div>
     </section>
 
-    <section class="service">
+    <section class="service" data-project>
       <div class="container service-inner">
         <div class="service-mark"><span class="num">03</span><span class="ar">٣</span></div>
         <div class="service-body">
@@ -704,49 +815,40 @@ window.updateStudy = function (now) {
       </div>
     </section>
 
-    <!-- ===== Loyihalarim ===== -->
-    <section id="loyihalar" class="projects">
+    <!-- ===== Ishlarim ===== -->
+    <section id="ishlar" class="projects">
       <div class="container">
         <div class="section-head-inline">
-          <p class="eyebrow">Loyihalarim</p>
-          <h2>Ishlarim va loyihalarim</h2>
+          <p class="eyebrow">Ishlarim</p>
+          <h2>Ustida ishlayotgan ishlarimiz</h2>
         </div>
 
-        <!-- Har bir loyiha — bitta <article class="project"> -->
+        <!-- Har bir ish — bitta <article class="project" data-project>.
+             Rasm qoʻshish: rasmni images/ papkasiga qoʻying va
+             .project-cover ichidagi <svg> oʻrniga <img src="images/ish-1.jpg" alt="..."> yozing. -->
         <div class="project-grid">
-          <article class="project">
+          <article class="project" data-project>
             <div class="project-cover">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg>
             </div>
             <div class="project-body">
               <p class="project-tag">Jarayonda</p>
               <h3>Yangi kitob</h3>
-              <p>Yangi kitob ustida ishlayapmiz.</p>
+              <p>Yangi kitob yozish ustida ishlayapmiz. Tez orada.</p>
             </div>
           </article>
-          <article class="project">
+          <article class="project" data-project>
             <div class="project-cover">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m10 9 5 3-5 3z"/></svg>
             </div>
             <div class="project-body">
               <p class="project-tag">Qurilyapti</p>
               <h3>Arab tili fonetikasi</h3>
-              <p>Bolalar uchun qiziqarli multfilmlar.</p>
+              <p>Bolalarga arab tili fonetikasini multfilm orqali qiziqarli oʻrgatamiz.</p>
               <a class="project-link" href="https://t.me/somethingwithai" target="_blank" rel="noopener">Telegram kanal →</a>
             </div>
           </article>
-          <article class="project">
-            <div class="project-cover">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-2.1 6.3-6.3 2.1 2.1-6.3z"/></svg>
-            </div>
-            <div class="project-body">
-              <p class="project-tag">Jamiyatcha</p>
-              <h3>Yoʻlchivoylar</h3>
-              <p>Kursdosh qizlarimiz bilan safarlar jamiyatchasi. Biz bilan bogʻlanib, birga safar qilishingiz mumkin.</p>
-              <a class="project-link" href="https://t.me/since1410" target="_blank" rel="noopener">Bogʻlanish →</a>
-            </div>
-          </article>
-          <article class="project">
+          <article class="project" data-project>
             <div class="project-cover">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c.5 4.7 4.3 8.5 9 9-4.7.5-8.5 4.3-9 9-.5-4.7-4.3-8.5-9-9 4.7-.5 8.5-4.3 9-9z"/></svg>
             </div>
@@ -757,6 +859,36 @@ window.updateStudy = function (now) {
               <a class="project-link" href="https://t.me/whenilearn" target="_blank" rel="noopener">Kanalni ochish →</a>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Savol-javob ===== -->
+    <section id="savol-javob" class="faq">
+      <div class="container faq-inner">
+        <div class="section-head-inline">
+          <p class="eyebrow">Savol-javob</p>
+          <h2>Koʻp beriladigan savollar</h2>
+        </div>
+
+        <!-- Har bir savol — bitta <details class="faq-item">. Bosilganda javob ochiladi. -->
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Siz kimsiz?</summary>
+            <p>Alisher Navoiy nomidagi Toshkent davlat oʻzbek tili va adabiyoti universiteti talabasimiz. Mumtoz adabiyot, Qurʼon ilmlari va vibecoding bilan qiziqamiz.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Qanday bogʻlansam boʻladi?</summary>
+            <p>Telegramda <a href="https://t.me/since1410" target="_blank" rel="noopener">@since1410</a> ga yozing yoki <a href="tel:+998777845307">+998 77 784 53 07</a> raqamiga qoʻngʻiroq qiling. Javob beramiz.</p>
+          </details>
+          <details class="faq-item">
+            <summary>«Yoʻlchivoylar» safarlariga qanday qoʻshilsa boʻladi?</summary>
+            <p><a href="https://t.me/since1410" target="_blank" rel="noopener">@since1410</a> ga yozing — safarlar haqida aytib beramiz.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Arab tili multfilmlarini qayerda koʻrsa boʻladi?</summary>
+            <p>Loyiha hozir qurilyapti. Yangiliklar <a href="https://t.me/somethingwithai" target="_blank" rel="noopener">Telegram kanalimizda</a> chiqadi.</p>
+          </details>
         </div>
       </div>
     </section>
