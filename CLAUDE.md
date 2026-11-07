@@ -44,6 +44,8 @@
 - Imkon boʻlsa ishni oʻzingiz bajaring (commit, push, tekshiruv). Foydalanuvchi oʻzi
   qilishi kerak boʻlgan ishni raqamlangan qadamlar, aniq papka yoʻli va nusxa olsa
   boʻladigan buyruqlar bilan bering — u faqat bajarishi qolsin.
+- Skrinshotlarni foydalanuvchi oʻzi oladi. Uning brauzeri yoki akkauntlari orqali
+  skrinshot olmang — faqat qanday olishni qadamma-qadam ayting.
 - Har suhbat oxirida pastdagi "Ish tarixi" ga sana bilan 1–3 qator qoʻshing;
   takrorlangan xato boʻlsa — "Takrorlangan xatolar" ga yozing.
 
@@ -67,3 +69,4 @@
   (Open Graph + og.jpg) qoʻshildi, telefonda tugmalar 44px. GitHub Pages ishga tushdi.
 - 2026-11-07: Rasm asl sifatli fayl bilan almashtirildi ("Rasm almashdi").
   CLAUDE.md ga sirlar qoidasi, takrorlangan xatolar va ish tarixi qoʻshildi.
+  Kompyuterdagi nusxa `git pull` bilan tenglashtirildi. Qoida: skrinshotni foydalanuvchi oʻzi oladi.
