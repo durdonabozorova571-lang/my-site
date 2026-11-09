@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yoʻlchivoylar — ilk safarimiz qayerga?</title>
+<meta name="description" content="Kelasi chorshanba qayerga boramiz? Joyni tanlang, piknikka ovoz bering.">
+<link rel="canonical" href="https://durdonabozorova571-lang.github.io/my-site/safar/">
+<!-- Havola Telegram'da karta boʻlib chiqishi uchun (Open Graph) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Yoʻlchivoylar">
+<meta property="og:locale" content="uz_UZ">
+<meta property="og:title" content="Yoʻlchivoylar: ilk safarimiz qayerga?">
+<meta property="og:description" content="Toʻrtta manzil, bitta chorshanba. Joyni tanlang va piknikka ovoz bering.">
+<meta property="og:url" content="https://durdonabozorova571-lang.github.io/my-site/safar/">
+<meta property="og:image" content="https://durdonabozorova571-lang.github.io/my-site/safar/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Yoʻlchivoylar — ilk safar uchun toʻrtta manzil">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Yoʻlchivoylar: ilk safarimiz qayerga?">
+<meta name="twitter:description" content="Toʻrtta manzil, bitta chorshanba. Joyni tanlang va piknikka ovoz bering.">
+<meta name="twitter:image" content="https://durdonabozorova571-lang.github.io/my-site/safar/og.jpg">
+<meta name="theme-color" content="#F8F2E8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171B26" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap">
+<style>
+/* Yoʻlchivoylar brendi: krem, toʻq koʻk, iliq toʻq sariq. Kartalar — sayohat chiptasi. */
+:root {
+  --bg: #F8F2E8; --card: #FFFDF9; --ink: #1B2A4A; --muted: #5A6377; --accent: #E8904A; --on-accent: #1B2A4A;
+  --line: #E7DCCB; --soft: #F1E8DA; --sky: #A9D3EC; --ok: #3E7B55; --ok-bg: #E3EFE0; --no-bg: #F6E3DC; --err: #A3402C;
+  --shadow: 0 1px 0 var(--line), 0 12px 30px -18px rgba(27,42,74,.35);
+  --display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --ui: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171B26; --card: #212737; --ink: #F3ECE1; --muted: #B3B9C7; --accent: #EFA266; --on-accent: #1B2A4A;
+    --line: #343C50; --soft: #2A3143; --sky: #6E9FBE; --ok: #8FCBA2; --ok-bg: #26392E; --no-bg: #43302B; --err: #F0A08E;
+    --shadow: 0 1px 0 var(--line), 0 12px 30px -18px rgba(0,0,0,.6);
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--ui); font-size: 15px; line-height: 1.5; }
+img { max-width: 100%; display: block; }
+.wrap { max-width: 1000px; margin: 0 auto; display: grid; gap: 32px;
+  padding-block: max(36px, env(safe-area-inset-top, 0px)) max(56px, env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* Sarlavha */
+header { display: grid; gap: 10px; }
+.eyebrow { font-weight: 800; font-size: 12px; letter-spacing: .3em; color: var(--accent); text-transform: uppercase; }
+h1 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 700; font-size: clamp(34px, 7vw, 58px); line-height: 1.05; text-wrap: balance; }
+.sub { margin: 0; color: var(--muted); font-weight: 600; max-width: 56ch; }
+.week { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+.week span { width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; font-size: 11px; font-weight: 800; color: var(--muted); }
+.week span.on { width: 38px; height: 38px; background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-size: 13px; }
+
+h2 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 700; font-size: clamp(26px, 4.5vw, 34px); line-height: 1.15; }
+.step { display: grid; gap: 14px; }
+.step-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.step-no { font-weight: 800; font-size: 12px; letter-spacing: .18em; color: var(--accent); text-transform: uppercase; }
+
+/* Joy kartalari */
+.places { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+.ticket { background: var(--card); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow); display: grid; transition: box-shadow .2s ease, transform .2s ease; }
+.ticket.is-picked { box-shadow: 0 0 0 3px var(--accent), var(--shadow); }
+.ticket.flash { box-shadow: 0 0 0 3px var(--sky), var(--shadow); }
+.photo { position: relative; aspect-ratio: 4 / 3; max-width: 100%; overflow: hidden; background: var(--soft); }
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); transition: opacity .35s ease; }
+.photo img.hidden { opacity: 0; }
+.num { position: absolute; top: 12px; left: 12px; width: 40px; height: 40px; border-radius: 50%; background: var(--card); color: var(--ink);
+  display: grid; place-items: center; font-weight: 800; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
+.views { position: absolute; left: 12px; bottom: 12px; display: flex; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(23,27,38,.55); backdrop-filter: blur(6px); }
+.views button { font: inherit; font-size: 12px; font-weight: 800; letter-spacing: .04em; color: #fff; background: transparent; border: 0; border-radius: 999px; min-height: 36px; padding: 0 14px; cursor: pointer; }
+.views button[aria-pressed="true"] { background: #FFFDF9; color: #1B2A4A; }
+.map { position: absolute; top: 12px; right: 12px; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; border-radius: 999px;
+  background: var(--card); color: var(--ink); text-decoration: none; font-weight: 800; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
+.map svg { width: 16px; height: 16px; }
+.stub { position: relative; display: grid; gap: 14px; padding: 20px 20px 20px; border-top: 2px dashed var(--line); }
+.stub::before, .stub::after { content: ""; position: absolute; top: -11px; width: 20px; height: 20px; border-radius: 50%; background: var(--bg); }
+.stub::before { left: -10px; } .stub::after { right: -10px; }
+.stub h3 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 600; font-size: 23px; line-height: 1.2; text-wrap: balance; }
+.pick { font: inherit; font-weight: 800; font-size: 14px; min-height: 48px; border-radius: 14px; border: 1.5px solid var(--line); background: transparent; color: var(--ink);
+  cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.pick:hover { border-color: var(--accent); }
+.ticket.is-picked .pick { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.pick .tick { display: none; }
+.ticket.is-picked .pick .tick { display: inline; }
+
+.fate { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.ghost { font: inherit; font-weight: 800; font-size: 13px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px dashed var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+.ghost:hover { border-color: var(--accent); }
+.fate p { margin: 0; color: var(--muted); font-weight: 600; font-size: 14px; min-width: 0; flex: 1 1 200px; }
+
+/* Ovoz berish paneli */
+.panel { background: var(--card); border-radius: 22px; box-shadow: var(--shadow); padding: 24px; display: grid; gap: 20px; }
+.field { display: grid; gap: 8px; }
+.label { font-weight: 800; font-size: 13px; letter-spacing: .04em; }
+.hint { font-weight: 500; color: var(--muted); font-size: 13px; }
+input[type="text"], textarea { font: inherit; font-size: 16px; color: var(--ink); background: var(--bg); border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; min-height: 48px; width: 100%; }
+textarea { min-height: 96px; resize: vertical; }
+input:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.chosen { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; background: var(--soft); font-weight: 600; min-height: 48px; }
+.chosen strong { font-family: var(--display); font-style: italic; font-size: 18px; }
+.picnic { display: flex; align-items: center; gap: 16px; }
+.picnic svg { flex: none; width: 64px; height: 64px; }
+.toggle { display: flex; flex-wrap: wrap; gap: 10px; }
+.toggle button { font: inherit; font-weight: 800; font-size: 14px; min-height: 48px; padding: 0 20px; border-radius: 999px; border: 1.5px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+.toggle button[aria-pressed="true"][data-v="0"] { background: var(--ok-bg); border-color: var(--ok); }
+.toggle button[aria-pressed="true"][data-v="1"] { background: var(--no-bg); border-color: var(--err); }
+.send { font: inherit; font-weight: 800; font-size: 15px; letter-spacing: .03em; min-height: 54px; border: 0; border-radius: 999px; background: var(--accent); color: var(--on-accent); cursor: pointer; padding: 0 28px; justify-self: start; }
+.send:disabled { opacity: .6; cursor: default; }
+.msg { margin: 0; font-weight: 700; min-height: 1.5em; }
+.msg.err { color: var(--err); }
+.msg.ok { color: var(--ok); }
+.open { margin: 0; font-family: var(--display); font-style: italic; font-weight: 600; font-size: 18px; }
+
+/* Natijalar */
+.results { display: grid; gap: 16px; }
+.count { color: var(--muted); font-weight: 600; margin: 0; }
+.bars { display: grid; gap: 14px; }
+.bar { display: grid; gap: 6px; }
+.bar-top { display: flex; justify-content: space-between; gap: 12px; font-weight: 700; }
+.bar-top span:last-child { font-variant-numeric: tabular-nums; color: var(--muted); white-space: nowrap; }
+.track { height: 10px; border-radius: 999px; background: var(--soft); overflow: hidden; }
+.fill { height: 100%; width: 0; border-radius: 999px; background: var(--accent); transition: width .6s ease; }
+.who { margin: 0; color: var(--muted); font-size: 13px; font-weight: 600; }
+.split { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.box { background: var(--soft); border-radius: 16px; padding: 16px; display: grid; gap: 6px; min-width: 0; }
+.box b { font-size: 14px; }
+.notes { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.notes li { background: var(--soft); border-radius: 16px; padding: 12px 16px; overflow-wrap: anywhere; }
+.notes b { display: block; font-size: 13px; }
+.empty { color: var(--muted); font-weight: 600; margin: 0; }
+footer { color: var(--muted); font-size: 13px; text-align: center; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="eyebrow">Yoʻlchivoylar · ilk safar</span>
+    <h1>Kelasi chorshanba qayerga boramiz?</h1>
+    <p class="sub">Joyni tanlang, piknikka javob bering va ismingizni yozing. Hammasi bir daqiqa.</p>
+    <div class="week" aria-label="Safar kuni: chorshanba">
+      <span>Du</span><span>Se</span><span class="on">Ch</span><span>Pa</span><span>Ju</span><span>Sh</span><span>Ya</span>
+    </div>
+  </header>
+
+  <section class="step" aria-labelledby="s1">
+    <div class="step-head"><span class="step-no">1-qadam</span><h2 id="s1">Joyni tanlang</h2></div>
+    <ul class="places" id="places"></ul>
+    <div class="fate">
+      <button type="button" class="ghost" id="spin">Tasodifiy tanlab koʻrish</button>
+      <p id="fate" aria-live="polite">Tanlay olmayapsizmi? Tasodif yordam bersin.</p>
+    </div>
+  </section>
+
+  <section class="step" aria-labelledby="s2">
+    <div class="step-head"><span class="step-no">2-qadam</span><h2 id="s2">Ovozingizni yuboring</h2></div>
+    <form class="panel" id="vote" novalidate>
+      <div class="field">
+        <label class="label" for="ism">Ismingiz</label>
+        <input type="text" id="ism" name="ism" autocomplete="given-name" maxlength="40" placeholder="Masalan: Durdona">
+      </div>
+      <div class="field">
+        <span class="label">Tanlangan joy</span>
+        <div class="chosen" id="chosen">Yuqoridan bitta joyni tanlang</div>
+      </div>
+      <div class="field">
+        <div class="picnic">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="48" fill="#F4EBD3"/>
+            <path d="M14 74 L50 60 L86 74 L50 88 Z" fill="#EFCBBE" stroke="#1B2A4A" stroke-width="2.4" stroke-linejoin="round"/>
+            <path d="M32 67 L68 81 M50 60 L32 81 M68 67 L50 88" stroke="#FFFDF9" stroke-width="3"/>
+            <path d="M34 50 H66 L62 70 H38 Z" fill="#D9A77A" stroke="#1B2A4A" stroke-width="2.4" stroke-linejoin="round"/>
+            <path d="M38 50 Q50 30 62 50" fill="none" stroke="#1B2A4A" stroke-width="2.4"/>
+            <circle cx="44" cy="46" r="5" fill="#E8904A" stroke="#1B2A4A" stroke-width="2"/>
+            <circle cx="56" cy="47" r="4" fill="#BDD3B7" stroke="#1B2A4A" stroke-width="2"/>
+          </svg>
+          <div class="field">
+            <span class="label" id="pk">Safardan keyin piknik qilamizmi?</span>
+            <span class="hint">Choy, shirinlik va samimiy suhbat.</span>
+          </div>
+        </div>
+        <div class="toggle" role="group" aria-labelledby="pk" id="picnic">
+          <button type="button" data-v="0" aria-pressed="false">Ha, albatta</button>
+          <button type="button" data-v="1" aria-pressed="false">Bu safar yoʻq</button>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" for="izoh">Izoh yoki taklif <span class="hint">(ixtiyoriy)</span></label>
+        <textarea id="izoh" name="izoh" maxlength="500" placeholder="Taklif va tavsiyalarga ochiqmiz!"></textarea>
+      </div>
+      <button type="submit" class="send" id="send">Ovozni yuborish</button>
+      <p class="msg" id="msg" role="status"></p>
+    </form>
+  </section>
+
+  <section class="step" aria-labelledby="s3">
+    <div class="step-head"><span class="step-no">Natijalar</span><h2 id="s3">Kim nima tanladi</h2></div>
+    <div class="panel results" id="results">
+      <p class="empty" id="status">Natijalar yuklanmoqda…</p>
+    </div>
+  </section>
+
+  <footer>Yoʻlchivoylar · har chorshanba — yangi manzil, yangi taassurot</footer>
+</div>
+
+<script>
+(() => {
+  // ---- Sozlamalar (Google Forma va jadval) ----
+  const FORM = "https://docs.google.com/forms/d/e/1FAIpQLSdroE0ef2Ux5NOGp9wI08gCFibJ6bjFzK8ji4vsBWIj0wht_w/formResponse";
+  const ENTRY = { ism: "entry.1521531781", joy: "entry.1360333230", piknik: "entry.1862703117", izoh: "entry.2020739802" };
+  const SHEET = "1a1rdWWCNC-UF4JMlHncpEQOoQoTeu_OiC09Xmtk9pvY";
+  const TAB = "Form Responses 1";
+
+  // value — formadagi variant matni bilan aynan bir xil boʻlishi shart
+  const PLACES = [
+    { value: "O‘zbekiston amaliy san’at muzeyi", name: "Oʻzbekiston amaliy sanʼat muzeyi", img: "muz", map: "https://maps.app.goo.gl/N8B5xJzXUci4rYpV9" },
+    { value: "Ichkari", name: "Ichkari", img: "ich", map: "https://maps.app.goo.gl/Q4pAr8hqa1LrfiLw8" },
+    { value: "Toshkent zamonaviy san’at markazi", name: "Toshkent zamonaviy sanʼat markazi", img: "cca", map: "https://maps.app.goo.gl/1CRrWCXRKgaDjeTG9" },
+    { value: "Madaniyat karvon saroyi", name: "Madaniyat karvon saroyi", img: "kar", map: "https://maps.app.goo.gl/pvN4dBvegLuaQCjZ6" },
+  ];
+  const PICNIC = [{ value: "Ha, albatta", name: "Ha, albatta" }, { value: "Bu safar yo‘q", name: "Bu safar yoʻq" }];
+  const norm = (s) => String(s || "").replace(/[‘’ʻʼ'`]/g, "'").trim().toLowerCase();
+
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  let picked = -1, picnic = -1;
+
+  // ---- Kartalar ----
+  const list = $("places");
+  PLACES.forEach((p, i) => {
+    const li = el("li");
+    li.innerHTML = `
+      <article class="ticket" id="t${i}">
+        <div class="photo">
+          <img src="img/${p.img}-tashqi.jpg" alt="${p.name} — tashqi koʻrinishi" loading="lazy">
+          <img src="img/${p.img}-ichki.jpg" alt="${p.name} — ichki koʻrinishi" loading="lazy" class="hidden">
+          <span class="num">${i + 1}</span>
+          <a class="map" href="${p.map}" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            Xarita
+          </a>
+          <div class="views" role="group" aria-label="Rasm">
+            <button type="button" aria-pressed="true" data-k="0">Tashqi</button>
+            <button type="button" aria-pressed="false" data-k="1">Ichki</button>
+          </div>
+        </div>
+        <div class="stub">
+          <h3></h3>
+          <button type="button" class="pick"><span class="tick" aria-hidden="true">✓</span><span class="pick-t">Shu joyni tanlash</span></button>
+        </div>
+      </article>`;
+    li.querySelector("h3").textContent = p.name;
+    const imgs = li.querySelectorAll(".photo img");
+    li.querySelectorAll(".views button").forEach((b) => b.addEventListener("click", () => {
+      const k = +b.dataset.k;
+      imgs.forEach((im, j) => im.classList.toggle("hidden", j !== k));
+      li.querySelectorAll(".views button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    }));
+    li.querySelector(".pick").addEventListener("click", () => choose(i));
+    list.append(li);
+  });
+  const tickets = PLACES.map((_, i) => $("t" + i));
+
+  function choose(i) {
+    picked = i;
+    tickets.forEach((t, j) => {
+      t.classList.toggle("is-picked", j === i);
+      t.querySelector(".pick-t").textContent = j === i ? "Tanlandi" : "Shu joyni tanlash";
+      t.querySelector(".pick").setAttribute("aria-pressed", String(j === i));
+    });
+    const c = $("chosen"); c.textContent = "";
+    c.append(el("span", null, (i + 1) + ". "), el("strong", null, PLACES[i].name));
+  }
+
+  // ---- Tasodifiy tanlash (faqat koʻrsatadi, ovoz bermaydi) ----
+  $("spin").addEventListener("click", (e) => {
+    const btn = e.currentTarget; btn.disabled = true;
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const target = Math.floor(Math.random() * PLACES.length);
+    const steps = reduce ? 0 : 12 + target + PLACES.length * 2;
+    let n = 0;
+    const land = () => {
+      tickets.forEach((t) => t.classList.remove("flash"));
+      const f = $("fate"); f.textContent = "";
+      f.append("Tasodif tanladi: ", el("strong", null, (target + 1) + ". " + PLACES[target].name), ". Yoqsa, «Shu joyni tanlash» tugmasini bosing.");
+      tickets[target].scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+      btn.disabled = false;
+    };
+    if (!steps) return land();
+    (function tick() {
+      tickets.forEach((t) => t.classList.remove("flash"));
+      tickets[n % tickets.length].classList.add("flash");
+      if (++n > steps) return land();
+      setTimeout(tick, 70 + n * n * 1.2);
+    })();
+  });
+
+  // ---- Piknik ----
+  const pBtns = [...$("picnic").querySelectorAll("button")];
+  pBtns.forEach((b) => b.addEventListener("click", () => {
+    picnic = +b.dataset.v;
+    pBtns.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+  }));
+
+  // ---- Ismni eslab qolish (faqat shu brauzerda) ----
+  try { const s = localStorage.getItem("yv-ism"); if (s) $("ism").value = s; } catch (e) {}
+
+  // ---- Yuborish ----
+  const msg = (t, kind) => { const m = $("msg"); m.textContent = t; m.className = "msg" + (kind ? " " + kind : ""); };
+  $("vote").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const ism = $("ism").value.trim().replace(/\s+/g, " ");
+    const izoh = $("izoh").value.trim();
+    if (!ism) { msg("Ismingizni yozing.", "err"); $("ism").focus(); return; }
+    if (picked < 0) { msg("Yuqoridan bitta joyni tanlang.", "err"); $("places").scrollIntoView({ behavior: "smooth" }); return; }
+    const body = new URLSearchParams();
+    body.append(ENTRY.ism, ism);
+    body.append(ENTRY.joy, PLACES[picked].value);
+    if (picnic >= 0) body.append(ENTRY.piknik, PICNIC[picnic].value);
+    if (izoh) body.append(ENTRY.izoh, izoh);
+    const send = $("send"); send.disabled = true; msg("Yuborilmoqda…");
+    try {
+      await fetch(FORM, { method: "POST", mode: "no-cors", body });
+      try { localStorage.setItem("yv-ism", ism); } catch (err) {}
+      msg("Rahmat, " + ism + "! Ovozingiz qabul qilindi.", "ok");
+      local.push({ ism, joy: PLACES[picked].value, piknik: picnic >= 0 ? PICNIC[picnic].value : "", izoh, t: Date.now() });
+      render();
+      setTimeout(load, 4000);
+    } catch (err) {
+      msg("Yuborib boʻlmadi. Internetni tekshirib, qayta urinib koʻring.", "err");
+    } finally { send.disabled = false; }
+  });
+
+  // ---- Natijalar (Google jadvaldan) ----
+  let rows = [], local = [], loaded = false, failed = false;
+  function load() {
+    const cb = "yv_cb_" + Date.now();
+    const s = document.createElement("script");
+    const done = () => { delete window[cb]; s.remove(); };
+    window[cb] = (data) => {
+      try {
+        const cols = data.table.cols.map((c) => norm(c.label));
+        const at = (p) => cols.findIndex((c) => c.startsWith(p));
+        const iI = at("ism"), iJ = at("qaysi"), iP = at("piknik"), iZ = at("izoh");
+        rows = (data.table.rows || []).map((r) => {
+          const v = (k) => (k >= 0 && r.c[k] && r.c[k].v != null ? String(r.c[k].v) : "");
+          return { ism: v(iI), joy: v(iJ), piknik: v(iP), izoh: v(iZ) };
+        }).filter((r) => r.ism && norm(r.ism) !== "test");
+        loaded = true; failed = false; local = [];
+      } catch (e) { failed = true; }
+      done(); render();
+    };
+    s.onerror = () => { done(); failed = true; render(); };
+    s.src = `https://docs.google.com/spreadsheets/d/${SHEET}/gviz/tq?tqx=out:json;responseHandler:${cb}&sheet=${encodeURIComponent(TAB)}&headers=1&_=${Date.now()}`;
+    document.head.append(s);
+  }
+
+  function render() {
+    // bir kishi bir necha marta yuborsa — oxirgi ovozi hisoblanadi
+    const byName = new Map();
+    [...rows, ...local].forEach((r) => byName.set(norm(r.ism), r));
+    const all = [...byName.values()];
+    const box = $("results"); box.textContent = "";
+    if (!all.length) {
+      box.append(el("p", "empty", failed && !loaded ? "Natijalarni yuklab boʻlmadi. Sahifani biroz keyin yangilang." : loaded ? "Hali hech kim ovoz bermadi. Birinchi boʻling!" : "Natijalar yuklanmoqda…"));
+      return;
+    }
+    box.append(el("p", "count", all.length + " kishi ovoz berdi"));
+    const bars = el("div", "bars");
+    const max = Math.max(1, ...PLACES.map((p) => all.filter((r) => norm(r.joy) === norm(p.value)).length));
+    PLACES.forEach((p, i) => {
+      const who = all.filter((r) => norm(r.joy) === norm(p.value));
+      const b = el("div", "bar");
+      const top = el("div", "bar-top"); top.append(el("span", null, (i + 1) + ". " + p.name), el("span", null, who.length + " ta ovoz"));
+      const track = el("div", "track"); const fill = el("div", "fill"); track.append(fill);
+      b.append(top, track);
+      if (who.length) b.append(el("p", "who", who.map((r) => r.ism).join(", ")));
+      bars.append(b);
+      requestAnimationFrame(() => { fill.style.width = (who.length / max * 100) + "%"; });
+    });
+    box.append(bars);
+
+    const split = el("div", "split");
+    PICNIC.forEach((p) => {
+      const who = all.filter((r) => norm(r.piknik) === norm(p.value));
+      const d = el("div", "box");
+      d.append(el("b", null, "Piknik: " + p.name + " — " + who.length), el("span", "who", who.length ? who.map((r) => r.ism).join(", ") : "Hali hech kim"));
+      split.append(d);
+    });
+    box.append(split);
+
+    const notes = all.filter((r) => r.izoh);
+    if (notes.length) {
+      const ul = el("ul", "notes");
+      notes.forEach((r) => { const li = el("li"); li.append(el("b", null, r.ism), document.createTextNode(r.izoh)); ul.append(li); });
+      box.append(el("span", "label", "Izoh va takliflar"), ul);
+    }
+  }
+
+  load();
+  setInterval(() => { if (!document.hidden) load(); }, 30000);
+})();
+</script>
+</body>
+</html>
