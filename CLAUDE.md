@@ -70,3 +70,6 @@
 - 2026-11-07: Rasm asl sifatli fayl bilan almashtirildi ("Rasm almashdi").
   CLAUDE.md ga sirlar qoidasi, takrorlangan xatolar va ish tarixi qoʻshildi.
   Kompyuterdagi nusxa `git pull` bilan tenglashtirildi. Qoida: skrinshotni foydalanuvchi oʻzi oladi.
+- 2026-11-09: `Durdona/safar/` — Yoʻlchivoylar ilk safari uchun ovoz berish sahifasi (4 joy, piknik,
+  izoh, natijalar). Javoblar Google Formaga ketadi, natijalar jadvaldan oʻqiladi — bu sahifa uchun
+  "tashqaridan faqat Google Fonts" qoidasidan istisno. Guruh taklif havolasi qoʻyilmadi.
