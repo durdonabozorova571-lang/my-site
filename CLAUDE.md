@@ -73,3 +73,5 @@
 - 2026-11-09: `Durdona/safar/` — Yoʻlchivoylar ilk safari uchun ovoz berish sahifasi (4 joy, piknik,
   izoh, natijalar). Javoblar Google Formaga ketadi, natijalar jadvaldan oʻqiladi — bu sahifa uchun
   "tashqaridan faqat Google Fonts" qoidasidan istisno. Guruh taklif havolasi qoʻyilmadi.
+- 2026-11-10: Safar sahifasiga Oʻzbekiston tarixi va Temuriylar tarixi muzeylari qoʻshildi; narxlar
+  (manbali) yozildi; Zamonaviy sanʼat markazi "Chiqarildi" (chorshanba yopiq). og-5.jpg — yangi karta.
