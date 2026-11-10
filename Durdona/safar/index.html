@@ -11,17 +11,17 @@
 <meta property="og:site_name" content="Yoʻlchivoylar">
 <meta property="og:locale" content="uz_UZ">
 <meta property="og:title" content="Yoʻlchivoylar: ilk safarimiz qayerga?">
-<meta property="og:description" content="Toʻrtta manzil, bitta chorshanba. Joyni tanlang va piknikka ovoz bering.">
+<meta property="og:description" content="Beshta manzil, bitta chorshanba. Joyni tanlang va piknikka ovoz bering.">
 <meta property="og:url" content="https://durdonabozorova571-lang.github.io/my-site/safar/">
-<meta property="og:image" content="https://durdonabozorova571-lang.github.io/my-site/safar/og.jpg">
+<meta property="og:image" content="https://durdonabozorova571-lang.github.io/my-site/safar/og-5.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Yoʻlchivoylar — ilk safar uchun toʻrtta manzil">
+<meta property="og:image:alt" content="Yoʻlchivoylar — ilk safar uchun beshta manzil">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Yoʻlchivoylar: ilk safarimiz qayerga?">
-<meta name="twitter:description" content="Toʻrtta manzil, bitta chorshanba. Joyni tanlang va piknikka ovoz bering.">
-<meta name="twitter:image" content="https://durdonabozorova571-lang.github.io/my-site/safar/og.jpg">
+<meta name="twitter:description" content="Beshta manzil, bitta chorshanba. Joyni tanlang va piknikka ovoz bering.">
+<meta name="twitter:image" content="https://durdonabozorova571-lang.github.io/my-site/safar/og-5.jpg">
 <meta name="theme-color" content="#F8F2E8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#171B26" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,6 +72,19 @@ h2 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 70
 .ticket { background: var(--card); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow); display: grid; transition: box-shadow .2s ease, transform .2s ease; }
 .ticket.is-picked { box-shadow: 0 0 0 3px var(--accent), var(--shadow); }
 .ticket.flash { box-shadow: 0 0 0 3px var(--sky), var(--shadow); }
+.ticket.off .photo img { filter: grayscale(1); opacity: .55; }
+.ticket.off h3 { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 1.5px; }
+.badge { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg); padding: 10px 22px; border: 3px solid var(--err);
+  border-radius: 12px; color: var(--err); background: var(--card); font-weight: 800; font-size: 18px; letter-spacing: .18em; text-transform: uppercase; }
+.pick:disabled { cursor: default; color: var(--muted); border-style: dashed; }
+.pick:disabled:hover { border-color: var(--line); }
+.head { display: grid; gap: 6px; }
+.price { margin: 0; color: var(--muted); font-size: 13px; font-weight: 600; line-height: 1.45; }
+.price.note { color: var(--err); }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; margin-right: 4px; }
+.tag.paid { background: var(--soft); color: var(--ink); border: 1.5px solid var(--accent); }
+.tag.free { background: var(--ok-bg); color: var(--ok); }
+.offnote { margin: 0; padding: 12px 16px; border-radius: 14px; border: 1.5px dashed var(--err); color: var(--ink); font-weight: 600; font-size: 14px; }
 .photo { position: relative; aspect-ratio: 4 / 3; max-width: 100%; overflow: hidden; background: var(--soft); }
 .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); transition: opacity .35s ease; }
 .photo img.hidden { opacity: 0; }
@@ -225,11 +238,19 @@ footer { color: var(--muted); font-size: 13px; text-align: center; }
 
   // value — formadagi variant matni bilan aynan bir xil boʻlishi shart
   const PLACES = [
-    { value: "O‘zbekiston amaliy san’at muzeyi", name: "Oʻzbekiston amaliy sanʼat muzeyi", img: "muz", map: "https://maps.app.goo.gl/N8B5xJzXUci4rYpV9" },
-    { value: "Ichkari", name: "Ichkari", img: "ich", map: "https://maps.app.goo.gl/Q4pAr8hqa1LrfiLw8" },
-    { value: "Toshkent zamonaviy san’at markazi", name: "Toshkent zamonaviy sanʼat markazi", img: "cca", map: "https://maps.app.goo.gl/1CRrWCXRKgaDjeTG9" },
+    { value: "O‘zbekiston amaliy san’at muzeyi", name: "Oʻzbekiston amaliy sanʼat muzeyi", img: "muz", map: "https://maps.app.goo.gl/N8B5xJzXUci4rYpV9",
+      paid: true, info: "Kirish taxminan 25 000 soʻm (2025 yil maʼlumoti)" },
+    { value: "Ichkari", name: "Ichkari", img: "ich", map: "https://maps.app.goo.gl/Q4pAr8hqa1LrfiLw8",
+      paid: false, info: "Asosiy ekspozitsiya bepul · har kuni 11:00–20:00" },
+    { value: "Toshkent zamonaviy san’at markazi", name: "Toshkent zamonaviy sanʼat markazi", img: "cca", map: "https://maps.app.goo.gl/1CRrWCXRKgaDjeTG9",
+      off: "Chorshanba kuni ishlamaydi, shuning uchun bu safar bormaymiz" },
     { value: "Madaniyat karvon saroyi", name: "Madaniyat karvon saroyi", img: "kar", map: "https://maps.app.goo.gl/pvN4dBvegLuaQCjZ6" },
+    { value: "O‘zbekiston tarixi davlat muzeyi", name: "Oʻzbekiston tarixi davlat muzeyi", img: "tar", map: "https://maps.app.goo.gl/PnJDECzG4CUTMHSf7",
+      paid: true, info: "Talabalar uchun 40 000 soʻm · 10:00–18:00" },
+    { value: "Temuriylar tarixi davlat muzeyi", name: "Temuriylar tarixi davlat muzeyi", img: "tem", map: "https://maps.app.goo.gl/gBkfi7SMKkboBF8S8",
+      paid: true, info: "Narxi kassada aniqlanadi · suratga olish alohida pullik · 10:00–17:00" },
   ];
+  const ACTIVE = PLACES.map((p, i) => i).filter((i) => !PLACES[i].off);
   const PICNIC = [{ value: "Ha, albatta", name: "Ha, albatta" }, { value: "Bu safar yo‘q", name: "Bu safar yoʻq" }];
   const norm = (s) => String(s || "").replace(/[‘’ʻʼ'`]/g, "'").trim().toLowerCase();
 
@@ -242,7 +263,7 @@ footer { color: var(--muted); font-size: 13px; text-align: center; }
   PLACES.forEach((p, i) => {
     const li = el("li");
     li.innerHTML = `
-      <article class="ticket" id="t${i}">
+      <article class="ticket${p.off ? " off" : ""}" id="t${i}">
         <div class="photo">
           <img src="img/${p.img}-tashqi.jpg" alt="${p.name} — tashqi koʻrinishi" loading="lazy">
           <img src="img/${p.img}-ichki.jpg" alt="${p.name} — ichki koʻrinishi" loading="lazy" class="hidden">
@@ -255,20 +276,27 @@ footer { color: var(--muted); font-size: 13px; text-align: center; }
             <button type="button" aria-pressed="true" data-k="0">Tashqi</button>
             <button type="button" aria-pressed="false" data-k="1">Ichki</button>
           </div>
+          ${p.off ? `<span class="badge">Chiqarildi</span>` : ""}
         </div>
         <div class="stub">
-          <h3></h3>
-          <button type="button" class="pick"><span class="tick" aria-hidden="true">✓</span><span class="pick-t">Shu joyni tanlash</span></button>
+          <div class="head"><h3></h3><p class="price"></p></div>
+          ${p.off
+            ? `<button type="button" class="pick" disabled><span class="pick-t">Bu safar yoʻq</span></button>`
+            : `<button type="button" class="pick"><span class="tick" aria-hidden="true">✓</span><span class="pick-t">Shu joyni tanlash</span></button>`}
         </div>
       </article>`;
     li.querySelector("h3").textContent = p.name;
+    const price = li.querySelector(".price");
+    if (p.off) { price.textContent = p.off; price.classList.add("note"); }
+    else if (p.info) { price.append(el("span", "tag " + (p.paid ? "paid" : "free"), p.paid ? "Pullik" : "Bepul"), " " + p.info); }
+    else price.remove();
     const imgs = li.querySelectorAll(".photo img");
     li.querySelectorAll(".views button").forEach((b) => b.addEventListener("click", () => {
       const k = +b.dataset.k;
       imgs.forEach((im, j) => im.classList.toggle("hidden", j !== k));
       li.querySelectorAll(".views button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
     }));
-    li.querySelector(".pick").addEventListener("click", () => choose(i));
+    if (!p.off) li.querySelector(".pick").addEventListener("click", () => choose(i));
     list.append(li);
   });
   const tickets = PLACES.map((_, i) => $("t" + i));
@@ -276,6 +304,7 @@ footer { color: var(--muted); font-size: 13px; text-align: center; }
   function choose(i) {
     picked = i;
     tickets.forEach((t, j) => {
+      if (PLACES[j].off) return;
       t.classList.toggle("is-picked", j === i);
       t.querySelector(".pick-t").textContent = j === i ? "Tanlandi" : "Shu joyni tanlash";
       t.querySelector(".pick").setAttribute("aria-pressed", String(j === i));
@@ -288,8 +317,9 @@ footer { color: var(--muted); font-size: 13px; text-align: center; }
   $("spin").addEventListener("click", (e) => {
     const btn = e.currentTarget; btn.disabled = true;
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const target = Math.floor(Math.random() * PLACES.length);
-    const steps = reduce ? 0 : 12 + target + PLACES.length * 2;
+    const live = ACTIVE.map((i) => tickets[i]);
+    const ti = Math.floor(Math.random() * live.length), target = ACTIVE[ti];
+    const steps = reduce ? 0 : live.length * 3 + ti;
     let n = 0;
     const land = () => {
       tickets.forEach((t) => t.classList.remove("flash"));
@@ -301,7 +331,7 @@ footer { color: var(--muted); font-size: 13px; text-align: center; }
     if (!steps) return land();
     (function tick() {
       tickets.forEach((t) => t.classList.remove("flash"));
-      tickets[n % tickets.length].classList.add("flash");
+      live[n % live.length].classList.add("flash");
       if (++n > steps) return land();
       setTimeout(tick, 70 + n * n * 1.2);
     })();
@@ -381,6 +411,7 @@ footer { color: var(--muted); font-size: 13px; text-align: center; }
     const bars = el("div", "bars");
     const max = Math.max(1, ...PLACES.map((p) => all.filter((r) => norm(r.joy) === norm(p.value)).length));
     PLACES.forEach((p, i) => {
+      if (p.off) return;
       const who = all.filter((r) => norm(r.joy) === norm(p.value));
       const b = el("div", "bar");
       const top = el("div", "bar-top"); top.append(el("span", null, (i + 1) + ". " + p.name), el("span", null, who.length + " ta ovoz"));
@@ -391,6 +422,10 @@ footer { color: var(--muted); font-size: 13px; text-align: center; }
       requestAnimationFrame(() => { fill.style.width = (who.length / max * 100) + "%"; });
     });
     box.append(bars);
+    PLACES.filter((p) => p.off).forEach((p) => {
+      const who = all.filter((r) => norm(r.joy) === norm(p.value));
+      if (who.length) box.append(el("p", "offnote", p.name + " roʻyxatdan chiqarildi. " + who.map((r) => r.ism).join(", ") + ", iltimos, boshqa joyni tanlab, ovozingizni qayta yuboring."));
+    });
 
     const split = el("div", "split");
     PICNIC.forEach((p) => {
